@@ -1,33 +1,27 @@
 <?php
     Class Template {
-        private $_render = FALSE;
-        private $_data = array();
+        private $render = FALSE;
+        private $data = array();
         
         function __construct($template = NULL) {
             if (!is_null($template)) {
-                $header = APP . 'templates' . DS . 'includes' . DS . 'header' . EXT;
-                $body = APP . 'templates' . DS . $template . EXT;
-                $footer = APP . 'templates' . DS . 'includes' . DS . 'footer' . EXT;
+                $file = APP . 'templates' . DS . $template . EXT;
             
-                $this->_render[] = $header;
-                $this->_render[] = $body;
-                $this->_render[] = $footer;
+                $this->render = $file;
             }
         }
         
-        function _assign($variable, $value) {
-            $this->_data[$variable] = $value;
+        function assign($variable, $value) {
+            $this->data[$variable] = $value;
         }
         
-        function _render($direct_output = TRUE) {
+        function render($direct_output = TRUE) {
             if ($direct_output !== TRUE) {
                 ob_start();
             }
             
-            $data = $this->_data;
-            foreach ($this->_render as $file) {
-                include($file);
-            }
+            $data = $this->data;
+            include($this->render);
             
             if ($direct_output !== TRUE) {
                 ob_get_clean();

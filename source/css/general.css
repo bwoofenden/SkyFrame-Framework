@@ -1,0 +1,33 @@
+/* 
+    Document   : general
+    Created on : Nov 9, 2011, 5:53:18 PM
+    Author     : Wizard
+*/
+html, body {width:100%;padding:0;margin:0;}
+hr {padding:0;margin:0;}
+h1, h2, h3, h4, h5, h6, h7 {padding:0;margin:0;}
+a {text-decoration:none;color:black;}
+a:hover {text-decoration:underline;color:#999999;}
+#wrap {
+    width: 75%;
+    position: relative;
+    left: 50%;
+    margin-left: -37.5%;
+    border: solid 2px black;
+    border-radius: 20px;
+}
+#header {
+    padding-left: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+#navbar {
+    padding-left: 10px;
+}
+#content {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+#footer {
+    padding-left: 10px;
+}

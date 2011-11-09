@@ -4,31 +4,31 @@
         private $_query;
         private $_result;
         
-        function __construct($host, $user, $pass, $name) {
+        function __construct() {}
+        
+        public function connect($host, $user, $pass, $name) {
             $this->_conn = new mysqli($host, $user, $pass, $name);
         }
         
-        function prepare($query) {
+        public function prepare($query) {
             $this->_query = $query;
         }
         
-        function query() {
-            if (isset ($this->_query)) {
-                $this->_result = $this->_conn->query($this->_query);
+        public function query() {
+            if ($this->_query) {
+                $this->_result = $this->_conn->query($host, $user, $pass, $name);
             }
         }
         
-        function fetch($type = 'array') {
+        public function fetch($type = 'object') {
             switch ($type) {
                 case 'array':
                     $row = $this->_result->fetch_array();
                     break;
                 case 'object':
-                    $row = $this->_result->fetch_object();
-                    break;
+                    
                 default:
-                    $row = $this->_result->fetch_array();
-                    break;
+                    $row = $this->_result->fetch_objecy();
             }
             return $row;
         }
