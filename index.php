@@ -9,10 +9,7 @@
     require(BASE . 'Common' . EXT);
     require(BASE . 'libraries' . DS . 'Registry' . EXT);
     $Registry = Object_Registry::singleton();
-    $Registry->storeObject('tpl', new Template('general'));
-    
-    $Master = $Registry->getObject('tpl');
-    $Master->_assign('title', 'Welcome');
-    $Master->_assign('content', 'Hello World!');
-    $Master->_render();
+    $Registry->storeObject('tpl', new Template());
+    $Registry->storeObject('router', new Router());
+    $Router = $Registry->getObject('router');
 ?>

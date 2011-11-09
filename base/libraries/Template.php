@@ -3,10 +3,16 @@
         private $_render = FALSE;
         private $_data = array();
         
-        function __construct($template) {
-            $file = APP . 'templates' . DS . $template . EXT;
+        function __construct($template = NULL) {
+            if (!is_null($template)) {
+                $header = APP . 'templates' . DS . 'includes' . DS . 'header' . EXT;
+                $body = APP . 'templates' . DS . $template . EXT;
+                $footer = APP . 'templates' . DS . 'includes' . DS . 'footer' . EXT;
             
-            $this->_render = $file;
+                $this->_render[] = $header;
+                $this->_render[] = $body;
+                $this->_render[] = $footer;
+            }
         }
         
         function _assign($variable, $value) {
@@ -19,7 +25,9 @@
             }
             
             $data = $this->_data;
-            include($this->_render);
+            foreach ($this->_render as $file) {
+                include($file);
+            }
             
             if ($direct_output !== TRUE) {
                 ob_get_clean();
