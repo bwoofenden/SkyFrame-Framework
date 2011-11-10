@@ -4,30 +4,45 @@
     Author     : Wizard
 */
 html, body {width:100%;padding:0;margin:0;}
-hr {padding:0;margin:0;}
-h1, h2, h3, h4, h5, h6, h7 {padding:0;margin:0;}
-a {text-decoration:none;color:black;}
-a:hover {text-decoration:underline;color:#999999;}
+h1, h2, h3, h4, h5, h6, h6 {margin:0;padding:0;}
+a {text-decoration:none;color:black;font-weight:bolder;}
+a:hover {text-decoration:underline;color:darkgray;}
+th {background-color: gray;}
+td {background-color: lightgray;}
 #wrap {
-    width: 75%;
+    border: solid 2px black;
+    width: 60%;
     position: relative;
     left: 50%;
-    margin-left: -37.5%;
-    border: solid 2px black;
-    border-radius: 20px;
+    margin-left: -30%;
+    overflow: hidden;
+    background-color: gainsboro;
 }
 #header {
+    clear: both;
+    border-bottom: solid 1px black;
+    background-color: gray;
     padding-left: 15px;
-    padding-top: 5px;
-    padding-bottom: 5px;
 }
 #navbar {
-    padding-left: 10px;
+    float: left;
+    border-right: solid 1px black;
+    border-bottom: solid 1px black;
+    width: 100px;
+    padding: 10px 10px 10px 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    background-color: lightgray;
 }
+#navbar ul, #navbar ul li, #navbar ol, #navbar ol li {padding:0;margin:0;}
 #content {
+    padding-top: 10px;
     padding-left: 10px;
     padding-right: 10px;
 }
 #footer {
+    clear: both;
+    border-top: solid 1px black;
+    background-color: gray;
     padding-left: 10px;
 }
